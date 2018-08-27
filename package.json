@@ -1,0 +1,17 @@
+{
+  "name": "get-req-ct",
+  "version": "1.0.0",
+  "description": "get request example for freelancing contest",
+  "main": "index.js",
+  "scripts": {
+    "test": "node example.js"
+  },
+  "author": "charlie",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "req-fast": "^0.2.17",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
