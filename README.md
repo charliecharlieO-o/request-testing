@@ -5,6 +5,7 @@ In this repo I test 3 different ways to make requests,, the first is just a simp
 ## Usage
 ```
 // Fetch the repo
+npm install
 npm test
 ```
 
