@@ -1,5 +1,7 @@
 const requests = require('./index.js')
 
+let logs = []
+
 async function timeLog(next) {
   const start = Date.now()
   await next
@@ -9,17 +11,17 @@ async function timeLog(next) {
 
 async function asyncRequests() {
   try {
-    console.log('Initiating library tests...\n')
-    // Calling STD function
-    t1 = await timeLog(requests.apiRequest())
-    console.log(`Standard Promise Request: ${t1}ms`)
-    // Calling Fast function
-    t2 = await timeLog(requests.apiRequestFast())
-    console.log(`Fast Request Library: ${t2}ms`)
-    // Scrapping
-    t3 = await timeLog(requests.scrapRequest())
-    console.log(`Scrapping website: ${t3}ms\n`)
-    console.log('FINISHED')
+    console.log('Initiating requests')
+    for (i = 0; i <= 1000; i++) {
+      logs.push(await timeLog(
+        requests.apiRequest('https://reqres.in/api/users?page=2')
+      ))
+      process.stdout.write('.')
+    }
+    console.log('\nCalculating average...')
+    const seconds = logs.reduce((a, b) => a + b, 0)
+    const average = seconds/1000
+    console.log(`Time average per 1000 requests: ${average} ms or ${average/1000} sec`)
   } catch (err) {
     console.log(err)
   }
