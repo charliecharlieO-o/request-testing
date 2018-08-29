@@ -21,7 +21,7 @@ This is for using the actual function
 
 ## index.js
 
-Index file contains 3 sample functions of a get request, the first one (usually the fastest) uses the request-promise module, the second one uses the req-fast module which is *sometimes* faster and lastly the scrapRequest scraps the URL (just for benchmarking.
+Index file contains a request function implemented with promises and https support and exports it.
 
 ## example.js
 
